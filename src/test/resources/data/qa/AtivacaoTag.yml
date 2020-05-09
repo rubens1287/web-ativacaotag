@@ -1,7 +1,7 @@
 
 ativacao_tag_valida_plano_completo:
   tagId: "1758461188"
-  cpf: "969.947.140-98"
+  cpf: "586.671.430-22"
   cel: "(11) 94743-3453"
   plano: "completo"
   placa: "FFT0990"
@@ -9,7 +9,7 @@ ativacao_tag_valida_plano_completo:
 
 ativacao_tag_valida_plano_urbano:
   tagId: "1758461188"
-  cpf: "969.947.140-98"
+  cpf: "890.597.850-96"
   cel: "(11) 94743-3453"
   plano: "urbano"
   placa: "FFT0990"
@@ -17,7 +17,7 @@ ativacao_tag_valida_plano_urbano:
 
 ativacao_tag_valida_plano_rodovias:
   tagId: "1758461188"
-  cpf: "969.947.140-98"
+  cpf: "869.782.870-83"
   cel: "(11) 94743-3453"
   plano: "rodovia"
   placa: "FFT0990"
@@ -25,7 +25,7 @@ ativacao_tag_valida_plano_rodovias:
 
 ativacao_tag_valida_plano_basico:
   tagId: "1758461188"
-  cpf: "969.947.140-98"
+  cpf: "864.931.690-54"
   cel: "(11) 94743-3453"
   plano: "basico"
   placa: "FFT0990"
