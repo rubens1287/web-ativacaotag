@@ -6,30 +6,24 @@
 trigger:
 - master
 
-#pool:
-#  vmImage: 'ubuntu-latest'
-
 pool:
   name: personal
   demands: maven
+
+#Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 steps:
 - task: DockerInstaller@0
   displayName: 'Install Docker 17.09.0-ce'
 
-steps:
 - script: |
    docker pull elgalu/selenium
    docker pull dosel/zalenium
   displayName: 'pull imagens docker'
 
-steps:
 - script: 'docker run --rm -ti --name zalenium -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start'
   displayName: 'run container'
 
-#Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-
-steps:
 - task: Maven@3
   displayName: 'Maven pom.xml'
   inputs:
@@ -38,12 +32,10 @@ steps:
     testResultsFiles: 'target/xml-junit/*.xml'
     testRunTitle: 'Functional Testing'
 
-steps:
 - script: 'docker stop zalenium'
   displayName: 'stop containers'
   condition: always()
 
-steps:
 - task: MaciejMaciejewski.azure-pipelines-cucumber.PublishCucumberReport.PublishCucumberReport@1
   displayName: 'Publish Cucumber Report'
   inputs:
