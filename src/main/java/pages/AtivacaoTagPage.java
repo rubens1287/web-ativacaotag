@@ -3,7 +3,6 @@ package pages;
 import documents.Documents;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.TakesScreenshot;
 import report.Report;
 import support.Action;
 import support.Verifications;
@@ -28,7 +27,10 @@ public class AtivacaoTagPage extends DriverManager implements CommonTestingType 
     }
 
     public void preencheDadosAtivacao(HashMap data){
-        Action.setText(txtCpf, data.get("cpf"));
+        Documents documents = new Documents();
+        String cpf = documents.getCpf(true);
+        Report.appendInfo("Numero do CPF: "+cpf);
+        Action.setText(txtCpf, cpf);
         Action.setText(txtAdesivo,data.get("tagId"));
         Report.takeScreenShot();
         Action.clickOnElement(btnAtivar);

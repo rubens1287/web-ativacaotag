@@ -1,5 +1,9 @@
 package documents;
 
+import lombok.extern.log4j.Log4j2;
+
+import javax.swing.text.MaskFormatter;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import static sun.util.calendar.CalendarUtils.mod;
@@ -8,7 +12,85 @@ import static sun.util.calendar.CalendarUtils.mod;
  * @author Rubens Lobo
  * @since 17/07/2018
  */
+@Log4j2
 public class Documents {
+
+    private ArrayList<Integer> listaAleatoria = new ArrayList<Integer>();
+    private ArrayList<Integer> listaNumMultiplicados = null;
+
+
+    private int geraNumAleatorio(){
+        int numero = (int) (Math.random() * 10);
+        return numero;
+    }
+
+    private ArrayList<Integer> geraPrimeiroDigito(){
+        listaNumMultiplicados = new ArrayList<Integer>();
+        int primeiroDigito;
+        int totalSomatoria = 0;
+        int restoDivisao;
+        int peso = 10;
+
+        for(int item : listaAleatoria){
+            listaNumMultiplicados.add(item * peso);
+
+            peso--;
+        }
+
+        for(int item : listaNumMultiplicados){
+            totalSomatoria += item;
+        }
+
+        restoDivisao = (totalSomatoria % 11);
+
+        if(restoDivisao < 2){
+            primeiroDigito = 0;
+        } else{
+            primeiroDigito = 11 - restoDivisao;
+        }
+
+        listaAleatoria.add(primeiroDigito);
+
+        return listaAleatoria;
+    }
+
+    private ArrayList<Integer> geraCPFParcial(){
+        for(int i = 0; i < 9; i++){
+            listaAleatoria.add(geraNumAleatorio());
+        }
+
+        return listaAleatoria;
+    }
+
+    private ArrayList<Integer> geraSegundoDigito(){
+        listaNumMultiplicados = new ArrayList<Integer>();
+        int segundoDigito;
+        int totalSomatoria = 0;
+        int restoDivisao;
+        int peso = 11;
+
+        for(int item : listaAleatoria){
+            listaNumMultiplicados.add(item * peso);
+
+            peso--;
+        }
+
+        for(int item : listaNumMultiplicados){
+            totalSomatoria += item;
+        }
+
+        restoDivisao = (totalSomatoria % 11);
+
+        if(restoDivisao < 2){
+            segundoDigito = 0;
+        } else{
+            segundoDigito = 11 - restoDivisao;
+        }
+
+        listaAleatoria.add(segundoDigito);
+
+        return listaAleatoria;
+    }
 
     /**
      * Get Random CPF documents
@@ -16,39 +98,32 @@ public class Documents {
      * @param mask - pass true if you want to get cpf with mask
      * @return a valid CPF document
      */
-    public static String getCpf(boolean mask) {
-        int n1 = createOneDigitRandomNumber();
-        int n2 = createOneDigitRandomNumber();
-        int n3 = createOneDigitRandomNumber();
-        int n4 = createOneDigitRandomNumber();
-        int n5 = createOneDigitRandomNumber();
-        int n6 = createOneDigitRandomNumber();
-        int n7 = createOneDigitRandomNumber();
-        int n8 = createOneDigitRandomNumber();
-        int n9 = createOneDigitRandomNumber();
-        int d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;
+    public String getCpf(boolean mask) {
+        geraCPFParcial();
+        geraPrimeiroDigito();
+        geraSegundoDigito();
 
-        d1 = 11 - (mod(d1, 11));
+        String cpf = "";
+        String texto = "";
 
-        if (d1 >= 10)
-            d1 = 0;
 
-        int d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;
-
-        d2 = 11 - (mod(d2, 11));
-
-        String result;
-
-        if (d2 >= 10)
-            d2 = 0;
-
-        if (mask)
-            result = "" + n1 + n2 + n3 + '.' + n4 + n5 + n6 + '.' + n7 + n8 + n9 + '-' + d1 + d2;
-        else
-            result = "" + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + d1 + d2;
-
-        return result;
+        for(int item : listaAleatoria){
+            texto += item;
+        }
+        if(mask){
+            try{
+                MaskFormatter mf = new MaskFormatter("###.###.###-##");
+                mf.setValueContainsLiteralCharacters(false);
+                cpf = mf.valueToString(texto);
+            }catch(Exception ex){
+                log.error("Erro ao tentar gerar mascara para o cpf " + ex);
+            }
+        }else {
+            cpf = texto;
+        }
+        return cpf;
     }
+
 
     /**
      * Get Random CNPJ documents

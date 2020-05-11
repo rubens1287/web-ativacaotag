@@ -1,6 +1,7 @@
 package report;
 
 import driver.DriverManager;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.OutputType;
@@ -25,6 +26,18 @@ public class Report extends DriverManager {
         }
 
         return null;
+    }
+
+    public static void appendInfo(String info) {
+        log.info("Anexa informações ao report");
+        String target = System.getProperty("report").toUpperCase();
+        switch (target) {
+            case "CUCUMBER":
+                getScenario().get().write(info);
+                break;
+            case "ALLURE":
+                Allure.addDescription(info);
+        }
     }
 
 }
