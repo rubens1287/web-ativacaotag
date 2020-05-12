@@ -18,14 +18,12 @@ public class Report extends DriverManager {
         switch (target) {
             case "CUCUMBER":
                 getScenario().get().embed(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES),"image/png");
-                break;
+                return null;
             case "ALLURE":
                 return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES);
             default:
                 throw new IllegalStateException("Unexpected value: " + target);
         }
-
-        return null;
     }
 
     public static void appendInfo(String info) {
@@ -37,7 +35,7 @@ public class Report extends DriverManager {
                 break;
             case "ALLURE":
                 Allure.addDescription(info);
+                break;
         }
     }
-
 }
