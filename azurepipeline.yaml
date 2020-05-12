@@ -34,3 +34,8 @@ steps:
     outputPath: '$(System.DefaultWorkingDirectory)'
     name: 'Report cucumber'
     title: DashBoard
+
+- task: Molecula.allure-test-reports.allure-generate.AllureGenerate@1
+  displayName: 'Generate Allure Report'
+  inputs:
+    resultsDir: 'target/allure-results'
