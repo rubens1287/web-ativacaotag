@@ -7,7 +7,7 @@ import report.Report;
 import support.Action;
 import support.Verifications;
 
-public class EnderecoPage extends DriverManager implements CommonTestingType{
+public class EnderecoPage extends DriverManager implements CommonTestingType {
 
     private By txtCep = By.id("CEP");
     private By txtNumero = By.id("NumeroEndereco");

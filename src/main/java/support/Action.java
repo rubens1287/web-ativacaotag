@@ -3,7 +3,6 @@ package support;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -15,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @since 13/05/2018
  */
 @Log4j2
-public class Action extends DriverManager{
+public class Action extends DriverManager {
 
 
     /**

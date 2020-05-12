@@ -18,7 +18,6 @@ public class Report extends DriverManager {
         switch (target) {
             case "CUCUMBER":
                 getScenario().get().embed(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES),"image/png");
-                return null;
             case "ALLURE":
                 return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES);
             default:
@@ -38,4 +37,5 @@ public class Report extends DriverManager {
                 break;
         }
     }
+
 }

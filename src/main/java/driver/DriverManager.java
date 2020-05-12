@@ -29,6 +29,7 @@ public class DriverManager {
 
     public static ThreadLocal<Scenario> getScenario() {
         return scenario;
+
     }
 
     public static void setScenario(Scenario scenario) {

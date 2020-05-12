@@ -4,13 +4,10 @@ import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import report.Report;
-import strings.StringUtils;
 import support.Action;
 import support.Verifications;
 
-import java.util.HashMap;
-
-public class DocumentosPessoaisPage extends DriverManager implements CommonTestingType{
+public class DocumentosPessoaisPage extends DriverManager implements CommonTestingType {
 
 
     private By txtRg = By.id("RG");

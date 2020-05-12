@@ -10,7 +10,7 @@ import support.VerificationsJavaScript;
 
 import java.util.HashMap;
 
-public class VeiculoPage extends DriverManager implements CommonTestingType{
+public class VeiculoPage extends DriverManager implements CommonTestingType {
 
 
     private By txtPlaca = By.id("Placa");

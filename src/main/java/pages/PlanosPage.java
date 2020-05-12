@@ -3,7 +3,6 @@ package pages;
 import driver.DriverManager;
 import org.openqa.selenium.By;
 import report.Report;
-import strings.StringUtils;
 import support.Action;
 import support.Verifications;
 

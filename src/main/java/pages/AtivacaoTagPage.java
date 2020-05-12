@@ -3,11 +3,10 @@ package pages;
 import documents.Documents;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import report.Report;
 import support.Action;
 import support.Verifications;
-import org.openqa.selenium.By;
-
 
 import java.util.HashMap;
 

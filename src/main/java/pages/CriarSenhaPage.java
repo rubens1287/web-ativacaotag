@@ -2,12 +2,11 @@ package pages;
 
 import driver.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import report.Report;
 import support.Action;
 import support.Verifications;
 
-public class CriarSenhaPage extends DriverManager implements CommonTestingType{
+public class CriarSenhaPage extends DriverManager implements CommonTestingType {
 
     private By txtCriaSenha = By.id("Senha");
     private By chkTermoAdesao = By.xpath("//label[@for='AceitoTermoDeAdesao']");

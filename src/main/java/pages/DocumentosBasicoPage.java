@@ -1,6 +1,5 @@
 package pages;
 
-import documents.Documents;
 import driver.DriverManager;
 import org.openqa.selenium.By;
 import report.Report;
@@ -10,7 +9,7 @@ import support.Verifications;
 
 import java.util.HashMap;
 
-public class DocumentosBasicoPage extends DriverManager implements CommonTestingType{
+public class DocumentosBasicoPage extends DriverManager implements CommonTestingType {
 
 
     private By txtCpf = By.id("CPF2");
