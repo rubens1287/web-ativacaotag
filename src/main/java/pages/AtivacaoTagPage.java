@@ -17,6 +17,11 @@ public class AtivacaoTagPage extends DriverManager implements CommonTestingType 
     private By txtAdesivo = By.name("Adesivo");
     private By btnAtivar = By.xpath("//button[contains(text(),'Ative já seu ConectCar')]");
 
+
+    public void acessarAplicacao(){
+        getDriver().get(configuration.url());
+    }
+
     @Override
     public boolean isPresent() {
         return Verifications.waitPageLoad()

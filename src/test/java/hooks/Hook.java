@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 
 @Log4j2
-public class Hook extends DriverManager {
+public class Hook  {
 
     @Before
     public void init(Scenario scenario) {
@@ -19,11 +19,8 @@ public class Hook extends DriverManager {
         log.info(String.format("TESTE INICIADO: %s",scenario.getName()));
 
         ConfigFactory.setProperty("env", System.getProperty("env"));
-
-
         WebDriver driver = DriverFactory.createInstance(System.getProperty("browser"));
         driver.manage().window().maximize();
-        driver.get(configuration.url());
         DriverManager.setDriver(driver);
     }
 
