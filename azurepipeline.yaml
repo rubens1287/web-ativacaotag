@@ -19,7 +19,7 @@ steps:
   displayName: 'Maven pom.xml'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean test -Dreport=cucumber -Denv=qa -Dbrowser=chrome'
+    goals: 'clean test -Dreport=cucumber -Denv=qa -Dbrowser=chrome -Dreport=cucumber'
     testResultsFiles: 'target/xml-junit/*.xml'
     testRunTitle: 'Functional Testing'
 
@@ -34,8 +34,3 @@ steps:
     outputPath: '$(System.DefaultWorkingDirectory)'
     name: 'Report cucumber'
     title: DashBoard
-
-- task: Molecula.allure-test-reports.allure-generate.AllureGenerate@1
-  displayName: 'Generate Allure Report'
-  inputs:
-    resultsDir: 'target/allure-results'

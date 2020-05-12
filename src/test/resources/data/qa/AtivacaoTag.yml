@@ -1,31 +1,27 @@
 
 ativacao_tag_valida_plano_completo:
-  tagId: "1758461188"
-  cpf: "586.671.430-22"
+  tagId: "1295107630"
   cel: "(11) 94743-3453"
   plano: "completo"
   placa: "FFT0990"
   marca: "CITROEN"
 
 ativacao_tag_valida_plano_urbano:
-  tagId: "1758461188"
-  cpf: "890.597.850-96"
+  tagId: "1295107630"
   cel: "(11) 94743-3453"
   plano: "urbano"
   placa: "FFT0990"
   marca: "CITROEN"
 
 ativacao_tag_valida_plano_rodovias:
-  tagId: "1758461188"
-  cpf: "869.782.870-83"
+  tagId: "1295107630"
   cel: "(11) 94743-3453"
   plano: "rodovia"
   placa: "FFT0990"
   marca: "CITROEN"
 
 ativacao_tag_valida_plano_basico:
-  tagId: "1758461188"
-  cpf: "864.931.690-54"
+  tagId: "1295107630"
   cel: "(11) 94743-3453"
   plano: "basico"
   placa: "FFT0990"
