@@ -1,6 +1,7 @@
 package pages;
 
 import driver.DriverManager;
+import model.TagModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import report.Report;
@@ -25,7 +26,7 @@ public class ValidaDadosAtivacaoPage extends DriverManager implements CommonTest
      *
      */
     public boolean isValidaDados(HashMap data){
-        return  VerificationsJavaScript.verifyText("Adesivo-Confirmacao",data.get("tagId"))
+        return  VerificationsJavaScript.verifyText("Adesivo-Confirmacao", TagModel.getTagId())
                 && VerificationsJavaScript.verifyText("Placa-Confirmacao",data.get("placa"));
     }
 

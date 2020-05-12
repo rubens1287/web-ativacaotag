@@ -21,4 +21,13 @@ public interface Configuration extends Config {
 
     @Key("faker.locale")
     String faker();
+
+    @Key("string.con.db")
+    String hostDb();
+
+    @Key("user.db")
+    String userDb();
+
+    @Key("pass.db")
+    String passDb();
 }

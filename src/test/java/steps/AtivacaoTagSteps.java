@@ -23,7 +23,7 @@ public class AtivacaoTagSteps {
 
     @Dado("^eu tenha uma tag da conectcar pronta para ativar$")
     public void euTenhaUmaTagDaConectcarProntaParaAtivar()  {
-        ativacaoTagPage.acessarAplicacao();
+        ativacaoTagPage.acessarPagina();
     }
 
     @Quando("^eu efetuar ativacao de tag com plano completo$")
