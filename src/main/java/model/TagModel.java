@@ -36,7 +36,6 @@ public class TagModel {
             for (Record record : result){
                tagId = String.valueOf(record.get("NumeroSerie"));
             }
-
             conn.close();
         } catch (SQLException e) {
             log.error("Erro na integração com banco de dados: " + e);

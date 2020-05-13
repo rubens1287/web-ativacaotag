@@ -1,5 +1,6 @@
 package hooks;
 
+import azure.RunTestController;
 import driver.DriverFactory;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +16,7 @@ public class Hook extends DriverManager {
 
     @Before
     public void init(Scenario scenario) {
+
         DriverManager.setScenario(scenario);
         log.info(String.format("TESTE INICIADO: %s",scenario.getName()));
 
@@ -28,6 +30,8 @@ public class Hook extends DriverManager {
     @After
     public void end(Scenario scenario){
         DriverManager.quit(scenario);
+        RunTestController runTestController = new RunTestController();
+        runTestController.runTestCase(scenario);
         log.info(String.format("TESTE FINALIZADO: %s",scenario.getName()));
         log.info(String.format("TESTE STATUS: %s",scenario.getStatus()));
     }
