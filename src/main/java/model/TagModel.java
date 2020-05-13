@@ -27,6 +27,7 @@ public class TagModel {
                 configuration.hostDb(),
                 configuration.userDb(),
                 configuration.passDb())) {
+
             DSLContext create = DSL.using(conn);
 
             Result<Record> result = create.fetch("SELECT TOP 1 t.NumeroSerie FROM tag t (NOLOCK) \n" +

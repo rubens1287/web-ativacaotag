@@ -5,6 +5,7 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import data.DataYaml;
+import model.TagModel;
 import org.junit.Assert;
 import pages.*;
 
@@ -24,12 +25,14 @@ public class AtivacaoTagSteps {
     @Dado("^eu tenha uma tag da conectcar pronta para ativar$")
     public void euTenhaUmaTagDaConectcarProntaParaAtivar()  {
         ativacaoTagPage.acessarPagina();
+        TagModel tagModel = new TagModel();
+        TagModel.setTagId(tagModel.selectTagId());
     }
 
-    @Quando("^eu efetuar ativacao de tag com plano completo$")
-    public void euEfetuarAtivacaoDeTagComPlanoCompleto()  {
+    @Quando("^eu efetuar ativacao de tag com plano \"([^\"]*)\"$")
+    public void euEfetuarAtivacaoDeTagComPlano(String plano) throws Throwable {
         HashMap massa = DataYaml
-                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_completo");
+                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_"+plano);
         ativacaoTagPage.isPresent();
         ativacaoTagPage.preencheDadosAtivacao(massa);
         documentosBasicoPage.isPresent();
@@ -47,75 +50,6 @@ public class AtivacaoTagSteps {
         enderecoPage.preencheDadosEndereco();
         criarSenhaPage.isPresent();
         criarSenhaPage.preencheDadosEndereco();
-    }
-
-    @Quando("^eu efetuar ativacao de tag com plano urbano$")
-    public void euEfetuarAtivacaoDeTagComPlanoUrbano() throws Throwable {
-        HashMap massa = DataYaml
-                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_urbano");
-        ativacaoTagPage.isPresent();
-        ativacaoTagPage.preencheDadosAtivacao(massa);
-        documentosBasicoPage.isPresent();
-        documentosBasicoPage.preencheDadosBasicos(massa);
-        planosPage.isPresent();
-        planosPage.escolherPlano(massa);
-        veiculoPage.isPresent();
-        veiculoPage.preencherDados(massa);
-        validaDadosAtivacaoPage.isPresent();
-        Assert.assertTrue(validaDadosAtivacaoPage.isValidaDados(massa));
-        validaDadosAtivacaoPage.continua();
-        documentosPessoaisPage.isPresent();
-        documentosPessoaisPage.preencheDadosPessoais();
-        enderecoPage.isPresent();
-        enderecoPage.preencheDadosEndereco();
-        criarSenhaPage.isPresent();
-        criarSenhaPage.preencheDadosEndereco();
-    }
-
-    @Quando("^eu efetuar ativacao de tag com plano rodovias$")
-    public void euEfetuarAtivacaoDeTagComPlanoRodovias() throws Throwable {
-        HashMap massa = DataYaml
-                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_rodovias");
-        ativacaoTagPage.isPresent();
-        ativacaoTagPage.preencheDadosAtivacao(massa);
-        documentosBasicoPage.isPresent();
-        documentosBasicoPage.preencheDadosBasicos(massa);
-        planosPage.isPresent();
-        planosPage.escolherPlano(massa);
-        veiculoPage.isPresent();
-        veiculoPage.preencherDados(massa);
-        validaDadosAtivacaoPage.isPresent();
-        Assert.assertTrue(validaDadosAtivacaoPage.isValidaDados(massa));
-        validaDadosAtivacaoPage.continua();
-        documentosPessoaisPage.isPresent();
-        documentosPessoaisPage.preencheDadosPessoais();
-        enderecoPage.isPresent();
-        enderecoPage.preencheDadosEndereco();
-        criarSenhaPage.isPresent();
-        criarSenhaPage.preencheDadosEndereco();
-    }
-
-    @Quando("^eu efetuar ativacao de tag com plano basico$")
-    public void euEfetuarAtivacaoDeTagComPlanoBasico() throws Throwable {
-        HashMap massa = DataYaml
-                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_basico");
-        ativacaoTagPage.isPresent();
-        ativacaoTagPage.preencheDadosAtivacao(massa);
-        documentosBasicoPage.isPresent();
-        documentosBasicoPage.preencheDadosBasicos(massa);
-        planosPage.isPresent();
-        planosPage.escolherPlano(massa);
-        veiculoPage.isPresent();
-        veiculoPage.preencherDados(massa);
-        validaDadosAtivacaoPage.isPresent();
-        Assert.assertTrue(validaDadosAtivacaoPage.isValidaDados(massa));
-        validaDadosAtivacaoPage.continua();
-        documentosPessoaisPage.isPresent();
-        documentosPessoaisPage.preencheDadosPessoais();
-        enderecoPage.isPresent();
-        enderecoPage.preencheDadosEndereco();
-        criarSenhaPage.isPresent();
-        criarSenhaPage.preencheDadosEndereco();;
     }
 
     @Entao("^sera apresentado a ativacao efetuada com sucesso$")

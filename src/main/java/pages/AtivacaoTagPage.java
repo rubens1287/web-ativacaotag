@@ -33,8 +33,7 @@ public class AtivacaoTagPage extends DriverManager implements CommonTestingType 
     public void preencheDadosAtivacao(HashMap data){
         Documents documents = new Documents();
 
-        TagModel tagModel = new TagModel();
-        TagModel.setTagId(tagModel.selectTagId());
+
 
         String cpf = documents.getCpf(true);
         Report.appendInfo("Numero do CPF: "+cpf);
