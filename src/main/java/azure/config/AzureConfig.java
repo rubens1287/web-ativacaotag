@@ -1,4 +1,4 @@
-package azure;
+package azure.config;
 
 import org.aeonbits.owner.Config;
 

@@ -1,21 +1,18 @@
-package azure;
+package azure.controller;
 
-import azure.model.Results;
-import azure.model.ResultTestCase;
+import azure.model.testresult.Results;
+import azure.model.testresult.ResultTestCase;
 import cucumber.api.Scenario;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.aeonbits.owner.ConfigCache;
 
 import java.util.Collections;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class RunTestController {
-
-    private AzureConfig azureConfig = ConfigCache.getOrCreate(AzureConfig.class);
+public class RunTestController extends GenericController  {
 
     public void runTestCase(Scenario scenario) {
 
@@ -31,7 +28,11 @@ public class RunTestController {
                 new ResultTestCase(getPointIdFromTestCase(scenario, tagsCucumber.getTestId()),
                         new Results(CucumberController.getStatus(scenario))));
         httpRequest.body(resultTestCases);
-        httpRequest.patch(url);
+
+        Response response = httpRequest.patch(url);
+
+        AttachmentController attachmentController = new AttachmentController();
+        attachmentController.addAttachment(response,scenario);
     }
 
     private Integer getPointIdFromTestCase(Scenario scenario, String testId){
@@ -43,10 +44,6 @@ public class RunTestController {
                 ,getBaseUrl(),tagsCucumber.getPlanId(), tagsCucumber.getSuiteId(),testId);
         Response response = httpRequest.get(url);
         return response.jsonPath().get("value.id[0]");
-    }
-
-    private String getBaseUrl(){
-        return String.format("https://%s/%s/%s/",azureConfig.hostAzure(), azureConfig.organization(), azureConfig.project());
     }
 
 }

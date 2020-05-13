@@ -1,4 +1,4 @@
-package azure;
+package azure.controller;
 
 import cucumber.api.Scenario;
 import driver.local.LocalDriverManager;

@@ -16,7 +16,7 @@ public class VerificationsJavaScript extends DriverManager {
                 .equals(expectedText)) && (timeout <= configuration.timeout())) {
             Verifications.wait(1);
             if (timeout == configuration.timeout()) {
-                log.error(String.format("Elemento via locator id: %s nao é igual a valor esperado: %s "),id,expectedText);
+                log.error(String.format("Elemento via locator id: %s nao é igual attachment valor esperado: %s "),id,expectedText);
                 return false;
             }
             timeout++;

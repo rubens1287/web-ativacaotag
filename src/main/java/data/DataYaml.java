@@ -14,7 +14,7 @@ import java.util.*;
 public class DataYaml {
 
     private static File getYamlDataFile(String fileName){
-        log.info(String.format("Pegando arquivo %s.yaml com a massa de dados do ambiente %s"
+        log.info(String.format("Pegando arquivo %s.yaml com attachment massa de dados do ambiente %s"
                 ,fileName,System.getProperty("env")));
         return new File("./src/test/resources/data/"+System.getProperty("env")+"/"+fileName+".yml");
     }
@@ -27,7 +27,7 @@ public class DataYaml {
         Map<String , Object> maps;
         try {
             maps = (LinkedHashMap<String, Object>) mapper.readValue(getYamlDataFile(fileName), Map.class);
-            log.info(String.format("Retornando objeto HashMap com a massa de dados do arquivo %s com titulo %s",fileName,titulo));
+            log.info(String.format("Retornando objeto HashMap com attachment massa de dados do arquivo %s com titulo %s",fileName,titulo));
             return  (LinkedHashMap<String, String>) maps.get(titulo);
         } catch (IOException e) {
             log.error("Erro ao tentar ler o arquivo de massa "+fileName+".yaml - stackTrace: " + e);

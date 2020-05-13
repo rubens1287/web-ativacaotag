@@ -27,7 +27,7 @@ public class RemoteDriverManager implements IDriver {
         RemoteWebDriver remoteWebDriver = null;
         Configuration configuration = ConfigCache.getOrCreate(Configuration.class);
         try {
-            // a composition of the target grid address and port
+            // attachment composition of the target grid address and port
             String gridURL = String.format("http://%s:%s/wd/hub", configuration.gridUrl(), configuration.gridPort());
 
             remoteWebDriver = new RemoteWebDriver(new URL(gridURL), getCapability(browser));

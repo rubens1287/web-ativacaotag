@@ -32,7 +32,7 @@ public class Action extends DriverManager {
 
 
     /**
-     * Returns a visible element from the screen
+     * Returns attachment visible element from the screen
      *
      * @param by      Type of "By"
      * @return Returns an visible element from the screen
@@ -45,10 +45,10 @@ public class Action extends DriverManager {
     }
 
     /**
-     * Returns a clickable element from the screen
+     * Returns attachment clickable element from the screen
      *
      * @param by      Type of "By"
-     * @return Returns a clickable element from the screen
+     * @return Returns attachment clickable element from the screen
      * @author Rubens Lobo
      */
     public static WebElement getClickableElement(By by) {
@@ -59,7 +59,7 @@ public class Action extends DriverManager {
 
 
     /**
-     * Clears the Text Field of a WebElement
+     * Clears the Text Field of attachment WebElement
      *
      * @param by      Type of "By"
      * @author Rubens Lobo
@@ -71,10 +71,10 @@ public class Action extends DriverManager {
     }
 
     /**
-     * Enters text in a WebElement Text Field
+     * Enters text in attachment WebElement Text Field
      *
      * @param by      Type of "By"
-     * @param text    set a text to web element
+     * @param text    set attachment text to web element
      * @author Rubens Lobo
      */
     public static void setText(By by, Object text) {
@@ -86,7 +86,7 @@ public class Action extends DriverManager {
     }
 
     /**
-     * Gets text from a WebElement Text Field
+     * Gets text from attachment WebElement Text Field
      *
      * @param by      Type of "By"
      * @author Rubens Lobo
@@ -105,7 +105,7 @@ public class Action extends DriverManager {
 
 
     /**
-     * Gets text by attribute in a WebElement Text Field
+     * Gets text by attribute in attachment WebElement Text Field
      *
      * @param by        Type of "By"
      * @param attribute get text value thought of the tag name
@@ -131,7 +131,7 @@ public class Action extends DriverManager {
      * @author Rubens Lobo
      */
     public static void clickOnElement(By by) {
-        //if the object is not enabled or visible, this line finalizes the test, but if the object exists the method returns a AppWeb Element object
+        //if the object is not enabled or visible, this line finalizes the test, but if the object exists the method returns attachment AppWeb Element object
         WebElement element = getClickableElement(by);
         log.info(String.format("Clicando no elemento web via locator %s ", by.toString()));
         //Clicks at the element requested

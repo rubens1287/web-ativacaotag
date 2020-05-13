@@ -22,7 +22,7 @@ public class Verifications extends DriverManager {
     }
 
     /**
-     * Waits for a defined period
+     * Waits for attachment defined period
      *
      * @param seconds the number of seconds the function will wait for
      * @author Rubens Lobo
@@ -64,7 +64,7 @@ public class Verifications extends DriverManager {
     }
 
     /**
-     * Verifies if a clickable element contains the expected text on screen
+     * Verifies if attachment clickable element contains the expected text on screen
      *
      * @param by           Type of "By"
      * @param expectedText is the text expected to be matched on screen
@@ -87,7 +87,7 @@ public class Verifications extends DriverManager {
 
 
     /**
-     * Verifies if an existing element contains the expected text on screen. It can be a disabled element
+     * Verifies if an existing element contains the expected text on screen. It can be attachment disabled element
      *
      * @param by           Type of "By"
      * @param expectedText is the text to be entered expected to be matched on screen

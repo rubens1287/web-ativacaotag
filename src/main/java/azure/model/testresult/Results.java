@@ -1,4 +1,4 @@
-package azure.model;
+package azure.model.testresult;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

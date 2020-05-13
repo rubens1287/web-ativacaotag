@@ -1,6 +1,6 @@
 package hooks;
 
-import azure.RunTestController;
+import azure.controller.RunTestController;
 import driver.DriverFactory;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
@@ -19,9 +19,7 @@ public class Hook extends DriverManager {
 
         DriverManager.setScenario(scenario);
         log.info(String.format("TESTE INICIADO: %s",scenario.getName()));
-
         ConfigFactory.setProperty("env", System.getProperty("env"));
-
         WebDriver driver = DriverFactory.createInstance(System.getProperty("browser"));
         driver.manage().window().maximize();
         DriverManager.setDriver(driver);
@@ -29,9 +27,9 @@ public class Hook extends DriverManager {
 
     @After
     public void end(Scenario scenario){
-        DriverManager.quit(scenario);
         RunTestController runTestController = new RunTestController();
         runTestController.runTestCase(scenario);
+        DriverManager.quit(scenario);
         log.info(String.format("TESTE FINALIZADO: %s",scenario.getName()));
         log.info(String.format("TESTE STATUS: %s",scenario.getStatus()));
     }

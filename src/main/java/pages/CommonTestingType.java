@@ -3,7 +3,7 @@ package pages;
 public interface CommonTestingType {
 
     /**
-     * Valida se a pagina foi apresentada
+     * Valida se attachment pagina foi apresentada
      *
      * @return boolean = true ou false
      */

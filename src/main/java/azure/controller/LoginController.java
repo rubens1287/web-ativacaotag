@@ -1,9 +1,8 @@
-package azure;
+package azure.controller;
 
 import org.apache.commons.codec.binary.Base64;
 
 public class LoginController {
-
 
     public static String getToken(String personalToken){
         String AuthStr = ":" + personalToken;
