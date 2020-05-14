@@ -32,7 +32,7 @@ public class AtivacaoTagSteps {
     @Quando("^eu efetuar ativacao de tag com plano \"([^\"]*)\"$")
     public void euEfetuarAtivacaoDeTagComPlano(String plano) throws Throwable {
         HashMap massa = DataYaml
-                .getMapYamlValues("AtivacaoTag","ativacao_tag_valida_plano_"+plano);
+                .getMapYamlValues("ativacao/AtivacaoTag","ativacao_tag_valida_plano_"+plano);
         ativacaoTagPage.isPresent();
         ativacaoTagPage.preencheDadosAtivacao(massa);
         documentosBasicoPage.isPresent();
@@ -54,7 +54,6 @@ public class AtivacaoTagSteps {
 
     @Entao("^sera apresentado a ativacao efetuada com sucesso$")
     public void seraApresentadoAAtivacaoEfetuadaComSucesso() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
     }
 }

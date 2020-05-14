@@ -6,7 +6,7 @@
 Funcionalidade: Ativação Tag
    Eu como cliente gostaria de acessar o sistema e ativar minha Tag da ConectCar
 
-   @TestId=19
+   @TestId=19 @dev
    Cenario: CT001 - Ativacao Tag - Realizar ativação plano Completo (Tag vendida pela Epay)
     Dado eu tenha uma tag da conectcar pronta para ativar
     Quando eu efetuar ativacao de tag com plano "completo"

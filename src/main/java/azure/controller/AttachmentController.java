@@ -26,7 +26,7 @@ public class AttachmentController extends GenericController{
         Attachment attachment = Attachment.builder()
                 .stream(((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64))
                 .fileName("Screeshot.png")
-                .comment("Screenshot anexada")
+                .comment("Screenshot  anexada via teste automatizado")
                 .attachmentType("GeneralAttachment").build();
 
         httpRequest.body(attachment);

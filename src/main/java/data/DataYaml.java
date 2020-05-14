@@ -13,10 +13,10 @@ import java.util.*;
 @Log4j2
 public class DataYaml {
 
-    private static File getYamlDataFile(String fileName){
+    private static File getYamlDataFile(String path){
         log.info(String.format("Pegando arquivo %s.yaml com attachment massa de dados do ambiente %s"
-                ,fileName,System.getProperty("env")));
-        return new File("./src/test/resources/data/"+System.getProperty("env")+"/"+fileName+".yml");
+                ,path,System.getProperty("env")));
+        return new File("./src/test/resources/data/"+System.getProperty("env")+"/"+path+".yml");
     }
 
     @SneakyThrows
