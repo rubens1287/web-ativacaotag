@@ -25,11 +25,3 @@ steps:
 - script: 'docker stop zalenium'
   displayName: 'stop containers'
   condition: always()
-
-- task: MaciejMaciejewski.azure-pipelines-cucumber.PublishCucumberReport.PublishCucumberReport@1
-  displayName: 'Publish Cucumber Report'
-  inputs:
-    jsonDir: '$(System.DefaultWorkingDirectory)/target/json-cucumber-reports/'
-    outputPath: '$(System.DefaultWorkingDirectory)'
-    name: 'Report cucumber'
-    title: DashBoard
