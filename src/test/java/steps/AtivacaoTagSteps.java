@@ -8,6 +8,7 @@ import data.DataYaml;
 import model.TagModel;
 import org.junit.Assert;
 import pages.*;
+import support.Verifications;
 
 import java.util.HashMap;
 
@@ -54,6 +55,6 @@ public class AtivacaoTagSteps {
 
     @Entao("^sera apresentado a ativacao efetuada com sucesso$")
     public void seraApresentadoAAtivacaoEfetuadaComSucesso() {
-        Assert.fail();
+        Assert.assertEquals(false,criarSenhaPage.isMensagemErroShow());
     }
 }

@@ -1,8 +1,8 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import driver.DriverManager;
 import org.openqa.selenium.By;
-import report.Report;
 import support.Action;
 import support.Verifications;
 
@@ -23,7 +23,7 @@ public class PlanosPage extends DriverManager implements CommonTestingType{
      *
      */
     public void escolherPlano(HashMap data){
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         Action.clickOnElement(By.xpath("//li[@id='"+data.get("plano")+"']//button"));
     }
 

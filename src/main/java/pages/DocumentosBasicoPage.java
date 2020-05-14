@@ -1,8 +1,8 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import driver.DriverManager;
 import org.openqa.selenium.By;
-import report.Report;
 import strings.StringUtils;
 import support.Action;
 import support.Verifications;
@@ -34,7 +34,7 @@ public class DocumentosBasicoPage extends DriverManager implements CommonTesting
         Action.setText(txtNome,faker.name().fullName());
         Action.setText(txtEmail, StringUtils.unaccent(faker.name().username()+"@gmail.com"));
         Action.setText(txtCelular,data.get("cel"));
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         Action.clickOnElement(btnVamosComecar);
     }
 

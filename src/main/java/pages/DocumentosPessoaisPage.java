@@ -1,9 +1,9 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import report.Report;
 import support.Action;
 import support.Verifications;
 
@@ -33,7 +33,7 @@ public class DocumentosPessoaisPage extends DriverManager implements CommonTesti
         Action.setText(txtDataNascimento, "24/12/1982");
         Action.selectComboOptionByValue(cbbGenero,"Masculino");
         Action.setText(txtNomeMae,faker.name().fullName());
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         Action.clickOnElement(txtRg);
         getDriver().findElement(txtRg).sendKeys(Keys.ENTER);
     }

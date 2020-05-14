@@ -1,11 +1,11 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import documents.Documents;
 import driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
 import model.TagModel;
 import org.openqa.selenium.By;
-import report.Report;
 import support.Action;
 import support.Verifications;
 
@@ -32,14 +32,10 @@ public class AtivacaoTagPage extends DriverManager implements CommonTestingType 
 
     public void preencheDadosAtivacao(HashMap data){
         Documents documents = new Documents();
-
-
-
         String cpf = documents.getCpf(true);
-        Report.appendInfo("Numero do CPF: "+cpf);
         Action.setText(txtCpf, cpf);
         Action.setText(txtAdesivo,TagModel.getTagId());
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         Action.clickOnElement(btnAtivar);
     }
 

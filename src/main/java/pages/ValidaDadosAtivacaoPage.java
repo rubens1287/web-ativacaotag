@@ -1,10 +1,10 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import driver.DriverManager;
 import model.TagModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import report.Report;
 import support.Verifications;
 import support.VerificationsJavaScript;
 
@@ -35,7 +35,7 @@ public class ValidaDadosAtivacaoPage extends DriverManager implements CommonTest
      *
      */
     public void continua(){
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         getDriver().findElement(txtNumeroAdesivo).sendKeys(Keys.ENTER);
     }
 

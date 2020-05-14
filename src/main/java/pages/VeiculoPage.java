@@ -1,9 +1,9 @@
 package pages;
 
+import azure.model.attachment.Attachment;
 import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import report.Report;
 import support.Action;
 import support.Verifications;
 import support.VerificationsJavaScript;
@@ -26,7 +26,7 @@ public class VeiculoPage extends DriverManager implements CommonTestingType {
      */
     public void preencherDados(HashMap data){
         Action.setText(txtPlaca,data.get("placa"));
-        Report.takeScreenShot();
+        attachments.add(new Attachment());
         VerificationsJavaScript.verifyText("VeiculoMarca", data.get("marca"));
         getDriver().findElement(txtPlaca).sendKeys(Keys.ENTER);
     }
