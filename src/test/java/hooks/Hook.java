@@ -27,6 +27,7 @@ public class Hook extends DriverManager {
 
     @After
     public void end(Scenario scenario){
+
         RunTestController runTestController = new RunTestController();
         runTestController.runTestCase(scenario);
         DriverManager.quit(scenario);

@@ -29,6 +29,7 @@ public class RunTestController extends GenericController  {
         List<ResultTestCase> resultTestCases = Collections.singletonList(
                 new ResultTestCase(getPointIdFromTestCase(scenario, tagsCucumber.getTestId()),
                         new Results(CucumberController.getStatus(scenario))));
+
         httpRequest.body(resultTestCases);
 
         Response response = httpRequest.patch(url);

@@ -20,11 +20,11 @@ public class CucumberController {
         for (int i = 0; i < tags.size(); i++) {
             String value = tags.get(i).toUpperCase();
             if(value.contains("SUITEID") ){
-                this.suiteId = tags.get(i).replace("@SuiteId=","");
+                this.suiteId = tags.get(i).toUpperCase().replace("@SUITEID=","");
             }else if(value.contains("TESTID")){
-                this.testId = tags.get(i).replace("@TestId=","");
+                this.testId = tags.get(i).toUpperCase().replace("@TESTID=","");
             }else if(value.contains("PLANID")){
-                this.planId = tags.get(i).replace("@PlanId=","");
+                this.planId = tags.get(i).toUpperCase().replace("@PLANID=","");
             }
         }
     }

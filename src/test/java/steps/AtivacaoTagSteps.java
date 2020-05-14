@@ -54,6 +54,6 @@ public class AtivacaoTagSteps {
 
     @Entao("^sera apresentado a ativacao efetuada com sucesso$")
     public void seraApresentadoAAtivacaoEfetuadaComSucesso() {
-
+        Assert.fail();
     }
 }

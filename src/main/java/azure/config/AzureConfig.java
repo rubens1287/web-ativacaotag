@@ -8,9 +8,6 @@ public interface AzureConfig extends Config {
     @Key("host.azure")
     String hostAzure();
 
-    @Key("organization")
-    String organization();
-
     @Key("project")
     String project();
 
