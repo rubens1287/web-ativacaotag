@@ -67,7 +67,7 @@ A integração com test managment do azure, e feito atravês do arquivo de prope
 onde você deve informa os parametros abaixo;
 
 ```
-# host do core.azure
+# host do azure
 host.azure = <Host do Servido>
 
 # Nome do Projeto
@@ -162,3 +162,9 @@ Os arquivos com as evidências ténicas ficam localizados na pasta target do pro
 ## LOG DE EXECUÇÃO
 
 Os logs de execução gerados pelo Log4j2 ficam alocados na pasta target/log
+
+## CARACTERISTICAS ESPECIAIS
+
+* Download automatico dos binários dos drivers para diferentes tipos de versões de navegadores e sistema operacional.
+* Segregação de massa por ambiente via arquivos yaml file.
+* Segregação das configurações de ambiente via arquivo properties file.
