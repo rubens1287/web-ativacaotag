@@ -20,7 +20,7 @@ public class Zalenium extends DriverManager {
             Verifications.wait(1);
             log.info("Aguardando o servidor do zalenium estar pronto para execução");
             if (timeout == configuration.timeout()) {
-                log.error("Execedeu o time out para disponibilizar o servidor do zalenium");
+                log.error("Excedeu o time-out para disponibilizar o servidor do zalenium");
             }
             timeout++;
         }
