@@ -63,7 +63,8 @@ Abaixo está a lista de frameworks utilizados nesse projeto
 
 ## INTEGRAÇÃO COM AZURE DEVOPS
 
-A integração com test managment do azure, e feito atravês do arquivo de properties onde você deve informa os parametros abaixo;
+A integração com test managment do azure, e feito atravês do arquivo de properties <b>"src\main\resources\azure.properties"</b> 
+onde você deve informa os parametros abaixo;
 
 ```
 # host do core.azure
@@ -107,7 +108,7 @@ localizado na raiz do projeto
 
 Configurações necessárias para rodar o pipeline no Jenkins
 
-*   Agente com acesso as apliações da companhia
+*   Agente com acesso as aplicações da companhia
    
 ### ETAPAS
 
