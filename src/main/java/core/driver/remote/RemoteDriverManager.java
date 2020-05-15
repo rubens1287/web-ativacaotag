@@ -28,17 +28,12 @@ public class RemoteDriverManager implements IDriver {
         RemoteWebDriver remoteWebDriver = null;
         Configuration configuration = ConfigCache.getOrCreate(Configuration.class);
         try {
-            // attachment composition of the target grid address and port
             String gridURL = String.format("http://%s:%s/wd/hub", configuration.gridUrl(), configuration.gridPort());
             Zalenium.waitToBeReady(gridURL);
             remoteWebDriver = new RemoteWebDriver(new URL(gridURL), getCapability(browser));
         } catch (MalformedURLException e) {
-            log.error("Grid URL is invalid or Grid is not available");
-            log.error("Browser: " +  browser, e);
-        } catch (IllegalArgumentException e) {
-            log.error("Browser: " +  browser + "is not valid or recognized", e);
+            log.error("Grid URL is invalid or Grid is not available ", e);
         }
-
         return remoteWebDriver;
     }
 
