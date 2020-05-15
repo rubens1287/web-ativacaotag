@@ -1,9 +1,8 @@
 package hooks;
 
-import azure.controller.RunTestController;
-import azure.model.attachment.Attachment;
-import driver.DriverFactory;
-import driver.DriverManager;
+import core.azure.controller.RunTestController;
+import core.driver.DriverFactory;
+import core.driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -12,7 +11,6 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Log4j2

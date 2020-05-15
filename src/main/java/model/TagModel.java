@@ -12,7 +12,7 @@ import org.jooq.impl.DSL;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static driver.DriverManager.configuration;
+import static core.driver.DriverManager.configuration;
 
 @Log4j2
 

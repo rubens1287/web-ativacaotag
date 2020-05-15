@@ -1,14 +1,12 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import data.DataYaml;
+import core.data.DataYaml;
 import model.TagModel;
 import org.junit.Assert;
 import pages.*;
-import support.Verifications;
 
 import java.util.HashMap;
 

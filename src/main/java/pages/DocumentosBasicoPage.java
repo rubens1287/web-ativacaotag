@@ -1,9 +1,9 @@
 package pages;
 
-import azure.model.attachment.Attachment;
-import driver.DriverManager;
+import core.azure.model.attachment.Attachment;
+import core.driver.DriverManager;
 import org.openqa.selenium.By;
-import strings.StringUtils;
+import core.strings.StringUtils;
 import support.Action;
 import support.Verifications;
 

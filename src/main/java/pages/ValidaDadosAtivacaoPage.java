@@ -1,7 +1,7 @@
 package pages;
 
-import azure.model.attachment.Attachment;
-import driver.DriverManager;
+import core.azure.model.attachment.Attachment;
+import core.driver.DriverManager;
 import model.TagModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

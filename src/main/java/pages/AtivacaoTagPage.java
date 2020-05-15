@@ -1,8 +1,8 @@
 package pages;
 
-import azure.model.attachment.Attachment;
-import documents.Documents;
-import driver.DriverManager;
+import core.azure.model.attachment.Attachment;
+import core.documents.Documents;
+import core.driver.DriverManager;
 import lombok.extern.log4j.Log4j2;
 import model.TagModel;
 import org.openqa.selenium.By;

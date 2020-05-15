@@ -1,7 +1,7 @@
 package pages;
 
-import azure.model.attachment.Attachment;
-import driver.DriverManager;
+import core.azure.model.attachment.Attachment;
+import core.driver.DriverManager;
 import org.openqa.selenium.By;
 import support.Action;
 import support.Verifications;
@@ -12,7 +12,7 @@ public class CriarSenhaPage extends DriverManager implements CommonTestingType {
     private By chkTermoAdesao = By.xpath("//label[@for='AceitoTermoDeAdesao']");
     private By btnContinuar = By.className("btn-pagina-senha");
 
-    private By msgErro = By.xpath("//div[contains(@data-bind,'StepSenha')]//div/p[contains(text(),'por favor tente novamente mais tarde')]");
+    private By msgErro = By.xpath("//div[contains(@core.data-bind,'StepSenha')]//div/p[contains(text(),'por favor tente novamente mais tarde')]");
 
     @Override
     public boolean isPresent() {
