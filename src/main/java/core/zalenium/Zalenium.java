@@ -16,6 +16,7 @@ public class Zalenium extends DriverManager {
 
         RequestSpecification httpRequest = given();
         int timeout = 0;
+        log.info("Iniciando processo para validar se o zalenium está pronto para receber a execução");
         while (httpRequest.get(url+"/status").getStatusCode() != 200 && timeout <= configuration.timeout()) {
             Verifications.wait(1);
             log.info("Aguardando o servidor do zalenium estar pronto para execução");
