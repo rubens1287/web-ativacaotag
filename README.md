@@ -80,10 +80,11 @@ personal.access.token = <Token do usuário do azure devops>
 Para concluir a configuração, você deve aplicar as tags no arquivo de features do cucumber, exemplo abaixo;
 
 tags reservadas
-
+```
 @PlanId=<Id do plano de teste no azure>
 @SuiteId=<Id do suite de teste no azure>
 @TestId=<Id do caso de teste no azure>
+```
 
 ```
 # language: pt
