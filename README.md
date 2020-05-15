@@ -23,7 +23,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | src\main\java\core\config 	| Interface com as propriedades dos arquivos de ambiente 'Properties'                                       |
 | src\main\java\core\data    	| Reponsável por ler arquivos yaml file e retonar objeto HashMap com os valores dos campos                  |
 | src\main\java\core\dates 		| Metodos de suporte para trabalhar com datas                                                              	|
-| src\main\java\core\documents	| Responsável gerar CPFs validos sintéticos                                                             	|
+| src\main\java\core\documents	| Responsável gerar CPFs sintéticos e validos                                                              	|
 | src\main\java\core\driver 	| Responsável por fabricar os drivers para rodar local e remoto para varios navegadores                    	|
 | src\main\java\core\strings 	| Responsável por fazer tratamentos em string                                                             	|
 | src\main\java\core\zalenium 	| Responsável por interagir com o zalenium                                                               	|
@@ -98,7 +98,6 @@ Funcionalidade: Login
    Eu como cliente gostaria de acessar o sistema via login somente com credenciais validas
 
   @TestId=7
-  @dev
    Cenario: CT001 - Login - Executar login com valido
     Dado eu estou na pagina de login
     Quando eu efetuar o login com credencias validas
