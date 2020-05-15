@@ -133,7 +133,7 @@ localizado na raiz do projeto
 
 ### PRE-REQUISITOS
 
-Configurações necessárias para rodar o pipeline no Jenkins
+Configurações necessárias para rodar o pipeline no Azure Devops
 
 *   Agente com acesso as aplicações da companhia
    
