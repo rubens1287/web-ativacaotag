@@ -123,10 +123,11 @@ Configurações necessárias para rodar o pipeline no Jenkins
 
 ## EVIDÊNCIAS
 
-Os arquivos com as evidências ficam localizados na pasta target do projeto, esta pasta só é criada depois da primeira execução.
+As evidências são enviadas diretamente para o Azure Devops, garantido a centralização dos resultados de teste
+
+Os arquivos com as evidências ténicas ficam localizados na pasta target do projeto, esta pasta só é criada depois da primeira execução.
 
 ```
- Log: target/log/exec_logs.log
  Json Cucumber: target/json-cucumber-reports/cucumber.json
  Xml Junit: tagert/xml-junit/junit.xml
 ```
