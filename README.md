@@ -77,6 +77,31 @@ project = <Nome do Projeto>
 personal.access.token = <Token do usuário do azure devops>
 ```
 
+Para concluir a configuração, você deve aplicar as tags no arquivo de features do cucumber, exemplo abaixo;
+
+tags reservadas
+
+@PlanId=<Id do plano de teste no azure>
+@SuiteId=<Id do suite de teste no azure>
+@TestId=<Id do caso de teste no azure>
+
+```
+# language: pt
+# charset: UTF-8
+
+@PlanId=5
+@SuiteId=9
+Funcionalidade: Login
+   Eu como cliente gostaria de acessar o sistema via login somente com credenciais validas
+
+  @TestId=7
+  @dev
+   Cenario: CT001 - Login - Executar login com valido
+    Dado eu estou na pagina de login
+    Quando eu efetuar o login com credencias validas
+    Entao sera apresentado a tela do menu principal
+```
+
 ## COMANDO PARA EXECUTAR OS TESTES
 
 Com o prompt de comando acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
