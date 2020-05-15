@@ -113,7 +113,7 @@ mvn clean test
 ```
 
 
-## MULTIPLOS COMANDOS 
+## MULTIPLOS COMANDOS PARA EXECUTAR OS TESTES 
 
 Você também pode mesclar a linha de comando maven com options do cucumber, 
 sendo assim você pode escolher uma determinada tag que se deseja executar do cucumber, 
