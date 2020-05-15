@@ -7,7 +7,7 @@ public class StringUtils {
     /**
      * Replace caraters with accent and special caracters
      *
-     * @param value  core.driver of the application
+     * @param value  driver of the application
      * @return Returns caracters without accent and special caracters
      * @author Rubens Lobo
      */

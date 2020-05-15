@@ -11,7 +11,7 @@ steps:
    docker pull dosel/zalenium
   displayName: 'pull imagens docker'
 
-- script: 'docker run --rm -ti --name core.zalenium -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/core.zalenium start'
+- script: 'docker run --rm -ti --name zalenium -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start'
   displayName: 'run container'
 
 - task: Maven@3
@@ -22,6 +22,6 @@ steps:
     testResultsFiles: 'target/xml-junit/*.xml'
     testRunTitle: 'Functional Testing'
 
-- script: 'docker stop core.zalenium'
+- script: 'docker stop zalenium'
   displayName: 'stop containers'
   condition: always()

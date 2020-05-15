@@ -22,7 +22,7 @@ public class LocalDriverManager implements IDriver {
         } catch (IllegalAccessException | ClassNotFoundException e) {
             log.error("The class could not be found", e);
         } catch (InstantiationException e) {
-            log.error("Problem during core.driver instantiation", e);
+            log.error("Problem during driver instantiation", e);
         }
         return driver;
     }

@@ -92,7 +92,7 @@ public class Documents {
     }
 
     /**
-     * Get Random CPF core.documents
+     * Get Random CPF documents
      *
      * @param mask - pass true if you want to get cpf with mask
      * @return attachment valid CPF document
@@ -124,7 +124,7 @@ public class Documents {
     }
 
     /**
-     * Remove special character of the core.documents
+     * Remove special character of the documents
      *
      * @param document - pass cpf or cnpj document to remove especial characters
      * @return String containing only numbers

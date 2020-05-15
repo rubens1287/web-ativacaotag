@@ -16,7 +16,7 @@ public class DataYaml {
     private static File getYamlDataFile(String path){
         log.info(String.format("Pegando arquivo %s.yaml com attachment massa de dados do ambiente %s"
                 ,path,System.getProperty("env")));
-        return new File("./src/test/resources/data/"+System.getProperty("env")+"/"+path+".yml");
+        return new File("./src/test/resources/core.data/"+System.getProperty("env")+"/"+path+".yml");
     }
 
     @SneakyThrows

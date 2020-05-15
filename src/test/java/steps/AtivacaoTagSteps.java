@@ -1,9 +1,9 @@
 package steps;
 
+import core.data.DataYaml;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import core.data.DataYaml;
 import model.TagModel;
 import org.junit.Assert;
 import pages.*;
@@ -30,8 +30,7 @@ public class AtivacaoTagSteps {
 
     @Quando("^eu efetuar ativacao de tag com plano \"([^\"]*)\"$")
     public void euEfetuarAtivacaoDeTagComPlano(String plano) throws Throwable {
-        HashMap massa = DataYaml
-                .getMapYamlValues("ativacao/AtivacaoTag","ativacao_tag_valida_plano_"+plano);
+        HashMap massa = DataYaml.getMapYamlValues("ativacao/AtivacaoTag","ativacao_tag_valida_plano_"+plano);
         ativacaoTagPage.isPresent();
         ativacaoTagPage.preencheDadosAtivacao(massa);
         documentosBasicoPage.isPresent();
