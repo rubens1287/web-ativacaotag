@@ -33,9 +33,14 @@ public class RunTestController extends GenericController  {
         httpRequest.body(resultTestCases);
 
         Response response = httpRequest.patch(url);
-        AttachmentController attachmentController = new AttachmentController();
-        attachmentController.addAttachment(response, scenario);
 
+        if(response.getStatusCode()==200){
+            log.info("Execução registrada com sucesso");
+            AttachmentController attachmentController = new AttachmentController();
+            attachmentController.addAttachment(response, scenario);
+        }else{
+            log.error("Erro ao tentar registrar execução do teste", response.getBody().print());
+        }
     }
 
     private Integer getPointIdFromTestCase(Scenario scenario, String testId){
