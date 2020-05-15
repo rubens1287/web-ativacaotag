@@ -25,5 +25,6 @@ public class Zalenium extends DriverManager {
             }
             timeout++;
         }
+        log.info("Zalenium pronto para a execução");
     }
 }

@@ -6,7 +6,7 @@
 Funcionalidade: Ativação Tag
    Eu como cliente gostaria de acessar o sistema e ativar minha Tag da ConectCar
 
-   @TestId=67676 @dev
+   @TestId=67676
    Cenario: Realizar ativação plano Completo (Regressivo)
     Dado eu tenha uma tag da conectcar pronta para ativar
     Quando eu efetuar ativacao de tag com plano "completo"
