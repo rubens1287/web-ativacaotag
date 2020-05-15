@@ -1,6 +1,6 @@
 # PROJETO MODELO PARA TESTE WEB 
 
-Projeto desenvolvido com proposito de ser um modelo base para teste para interface web
+Projeto desenvolvido com proposito de ser um modelo base para teste de interface web
 
 ## PRÉ-REQUISITOS
 
@@ -9,7 +9,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 *   Java 1.8 SDK
 *   Maven 3.5.*
 *   Navegador Web (Chrome, Opera, FireFox, Edge ou Safari)
-*   Intellij IDE
+*   Intellij IDEA Community
 *   Plugins do Intellij
     * Cumcuber for java
     * Lombok
@@ -19,12 +19,14 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 | Diretório                    	| finalidade       	                                                                                        | 
 |------------------------------	|---------------------------------------------------------------------------------------------------------- |
-| src\main\java\core.azure 			| Responsável por enviar os resultados para o test management do Azure Devops                               |
-| src\main\java\core.config 			| Interface com as propriedades dos arquivos de ambiente 'Properties'                                       |
-| src\main\java\core.data    		| Reponsável por ler arquivos yaml file e retonar objeto HashMap com os valores dos campos                  |
-| src\main\java\core.dates 			| Metodos de suporte para trabalhar com datas                                                              	|
-| src\main\java\core.documents		| Responsável gerar CPFs validos sintéticos                                                             	|
-| src\main\java\core.driver 			| Responsável por fabricar os drivers para rodar local e remoto para varios navegadores                    	|
+| src\main\java\core\azure 		| Responsável por enviar os resultados para o test management do Azure Devops                               |
+| src\main\java\core\config 	| Interface com as propriedades dos arquivos de ambiente 'Properties'                                       |
+| src\main\java\core\data    	| Reponsável por ler arquivos yaml file e retonar objeto HashMap com os valores dos campos                  |
+| src\main\java\core\dates 		| Metodos de suporte para trabalhar com datas                                                              	|
+| src\main\java\core\documents	| Responsável gerar CPFs validos sintéticos                                                             	|
+| src\main\java\core\driver 	| Responsável por fabricar os drivers para rodar local e remoto para varios navegadores                    	|
+| src\main\java\core\strings 	| Responsável por fazer tratamentos em string                                                             	|
+| src\main\java\core\zalenium 	| Responsável por interagir com o zalenium                                                               	|
 | src\main\java\pages			| Local onde deve ser criado as pages objects para facilitar a manutenção do projeto                       	|
 | src\main\java\model			| Responsável por organizar os objetos modelos utilizado no suporte dos scripts de teste               		|
 | src\main\java\support			| Metodos de suporte a interação com os elementos web fazendo ações de click e esperas explicitas          	|
@@ -32,7 +34,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | src\test\java\hooks          	| Metodos que executam antes e depois de cada teste (@Before, @After)                                   	|
 | src\test\java\runner         	| Metodo prinicipal que inicia os testes via cucumber                                                      	|
 | src\test\java\steps         	| Local onde deve ser criado as classes que representam os steps definition do cucumber                    	|
-| src\test\resources\core.data      	| Massa de dados segregada por ambiente, escritos em arquivos yaml                                      	|
+| src\test\resources\data       | Massa de dados segregada por ambiente, escritos em arquivos yaml                                      	|
 | src\test\resources\features 	| Funcionalidade e cenários de teste escritos em linguagem DSL (Gherkin language)                        	|   
     
 ## DOWNLOAD DO PROJETO TEMPLATE PARA SUA MÁQUINA LOCAL
@@ -46,15 +48,33 @@ também customizar de acordo com sua necessidade.
 
 Abaixo está a lista de frameworks utilizados nesse projeto
 
-* Jackson - Responsável pela leitura de dados de arquivo yaml file
-* Selenium - Responsável pela interação com páginas web
-* Allure - report em HTML
-* Java Faker - Geracão de dados sintéticos
-* Cucumber - Responsável pela especificação executável de cenários
-* Cucumber Junit - Responsável por validar as condições de teste
-* Lombok - Otimização de classes modelos
-* Log4j2 - Responsável pelo Log do projeto
-* AeonBits - Responsável por gerenciar as properties
+| Framework                    	| finalidade       	                                                                                        | 
+|------------------------------	|---------------------------------------------------------------------------------------------------------- |
+| Jackson                  		| Responsável pela leitura de dados de arquivo yaml file                                                    |
+| Selenium                     	| Responsável pela interação com páginas web                                                                |
+| RestAssured               	| Reponsável realizar a integração com a API do test management do Azure Devops                             |
+| Java Faker             		| Geracão de dados sintéticos                                                                             	|
+| Cucumber                  	| Responsável pela especificação executável de cenários                                                   	|
+| Cucumber Junit             	| Responsável pela especificação executável de cenários                                                     |
+| Lombok                     	| Otimização de classes modelos                                                                         	|
+| Log4j2                     	| Responsável pelo Log do projeto                                                                          	|
+| AeonBits          			| Responsável por gerenciar as properties                                                                  	|
+
+
+## INTEGRAÇÃO COM AZURE DEVOPS
+
+A integração com test managment do azure, e feito atravês do arquivo de properties onde você deve informa os parametros abaixo;
+
+```
+# host do core.azure
+host.azure = <Host do Servido>
+
+# Nome do Projeto
+project = <Nome do Projeto>
+
+# Token de acesso ao modulo test management com permisão de escrita e leitura
+personal.access.token = <Token do usuário do azure devops>
+```
 
 ## COMANDO PARA EXECUTAR OS TESTES
 
@@ -77,30 +97,27 @@ mvn clean test -Dcucumber.options="--tags @dev" -Denv=des -Dbrowser=chrome
 
 ## TESTES CONTINUOS
 
-### JENKINS
+### AZURE DEVOPS
 
 Executar testes de forma continua vem se tornado fundamental para agregar valor junto a seu time,
-para isto foi configurado o pipeline para ser aplicado ao jenkins chamando "Jenkinsfile"
+para isto foi configurado o pipeline para ser aplicado ao jenkins chamando "azurepipeline.yml"
 localizado na raiz do projeto
 
 ### PRE-REQUISITOS
 
 Configurações necessárias para rodar o pipeline no Jenkins
 
-*   [Allure configurado no Jenkins](https://docs.qameta.io/allure/#_jenkins)
-*   [Docker instalado na máquina agente](https://www.docker.com/products/docker-desktop)
-*   Plugins
-    * [Allure Jenkins Plugin](https://plugins.jenkins.io/allure-jenkins-plugin)
+*   Agente com acesso as apliações da companhia
    
 ### ETAPAS
 
-* Java e Maven no contexto do jenkins
+* Checkout do código
+* Agent azure devops
 * Download do Zalenium como infraestrutura 
 * Execução dos containers do Zalenium
 * Execução dos testes
-* Geração do Report com Allure
+* Upload do arquivo de resultados junit.xml para Azure
 * Encerramento da infraestrutura do Zalenium
-* Upload dos arquivos junit.xml e exec_logs.log
 
 
 ## EVIDÊNCIAS
@@ -108,9 +125,9 @@ Configurações necessárias para rodar o pipeline no Jenkins
 Os arquivos com as evidências ficam localizados na pasta target do projeto, esta pasta só é criada depois da primeira execução.
 
 ```
- Report HTML: target\site\index.html
- Json Cucumber: target\json-cucumber-reports\cucumber.json
- Xml Junit: tagert\xml-junit\junit.xml
+ Log: target/log/exec_logs.log
+ Json Cucumber: target/json-cucumber-reports/cucumber.json
+ Xml Junit: tagert/xml-junit/junit.xml
 ```
 
 ## LOG DE EXECUÇÃO
