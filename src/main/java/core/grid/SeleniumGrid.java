@@ -1,4 +1,4 @@
-package core.zalenium;
+package core.grid;
 
 import core.driver.DriverManager;
 import io.restassured.specification.RequestSpecification;
@@ -9,22 +9,22 @@ import static io.restassured.RestAssured.given;
 
 
 @Log4j2
-public class Zalenium extends DriverManager {
+public class SeleniumGrid extends DriverManager {
 
 
     public static void waitToBeReady(String url){
 
         RequestSpecification httpRequest = given();
         int timeout = 0;
-        log.info("Iniciando processo para validar se o zalenium está pronto para receber a execução");
+        log.info("Iniciando processo para validar se o grid está pronto para receber a execução");
         while (httpRequest.get(url+"/status").getStatusCode() != 200 && timeout <= configuration.timeout()) {
             Verifications.wait(1);
-            log.info("Aguardando o servidor do zalenium estar pronto para execução");
+            log.info("Aguardando o servidor do grid estar pronto para execução");
             if (timeout == configuration.timeout()) {
-                log.error("Excedeu o time-out para disponibilizar o servidor do zalenium");
+                log.error("Excedeu o time-out para disponibilizar o servidor do grid");
             }
             timeout++;
         }
-        log.info("Zalenium pronto para a execução");
+        log.info("SeleniumGrid pronto para a execução");
     }
 }
