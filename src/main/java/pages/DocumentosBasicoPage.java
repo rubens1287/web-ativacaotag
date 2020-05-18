@@ -31,8 +31,9 @@ public class DocumentosBasicoPage extends DriverManager implements CommonTesting
      *
      */
     public void preencheDadosBasicos(HashMap data){
-        Action.setText(txtNome,faker.name().fullName());
-        Action.setText(txtEmail, StringUtils.unaccent(faker.name().username()+"@gmail.com"));
+        String nome = faker.name().fullName();
+        Action.setText(txtNome,nome);
+        Action.setText(txtEmail, StringUtils.unaccent(nome+"@gmail.com"));
         Action.setText(txtCelular,data.get("cel"));
         attachments.add(new Attachment());
         Action.clickOnElement(btnVamosComecar);

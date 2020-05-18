@@ -1,7 +1,9 @@
 package core.azure.controller;
 
+import core.azure.model.attachment.Attachment;
 import core.azure.model.testresult.Results;
 import core.azure.model.testresult.ResultTestCase;
+import core.driver.DriverManager;
 import cucumber.api.Scenario;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

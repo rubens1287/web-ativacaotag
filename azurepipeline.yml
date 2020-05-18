@@ -11,7 +11,7 @@ steps:
    docker pull dosel/zalenium
   displayName: 'pull imagens docker'
 
-- script: 'docker run --rm -ti --name grid -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/grid start'
+- script: 'docker run --rm -ti --name grid -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start'
   displayName: 'run container'
 
 - task: Maven@3

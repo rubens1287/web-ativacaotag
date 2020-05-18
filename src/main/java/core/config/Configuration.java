@@ -5,6 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"classpath:conf/${env}.properties"})
 public interface Configuration extends Config {
 
+    @Key("target")
     String target();
 
     @Key("url.base")
